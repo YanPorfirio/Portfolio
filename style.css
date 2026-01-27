@@ -109,6 +109,7 @@ nav {
 .container {
     max-width: 1200px;
     margin-left: auto;
+    padding: 5rem;
 }
 
 .blur {
@@ -169,3 +170,14 @@ header .content h1 {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
+.biblioteca {
+    max-width: 1200px;
+    margin: auto;
+    padding: 5rem;
+}
+
+section .title{
+    margin-bottom: 1rem;
+    color: black;  
+
+}
