@@ -124,7 +124,7 @@ nav {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 5rem;
+    padding: 5rem 1rem;
 }
 
 .blur {
@@ -151,22 +151,13 @@ header .content h1 {
     font-weight: 500;
     line-height: 1.2;
     letter-spacing: -0.02em;
+    margin-left: 6rem;
 }
 
 .image {
     position: relative;
     display: flex;
     justify-content: center;
-}
-
-.image::before {
-    content: "";
-    position: absolute;
-    inset: -10px;
-    border-radius: 50px;
-    background-color: rgba(0, 0, 0, 0.03);
-    z-index: -1;
-    pointer-events: none;
 }
 
 .image img{
@@ -212,6 +203,7 @@ hr {
     line-height: 1.2;
     letter-spacing: -0.02em;
     font-size: 30px; 
+    margin-left: 6rem;
 }
 
 .carrossel-container {
