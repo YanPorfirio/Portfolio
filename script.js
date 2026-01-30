@@ -62,7 +62,7 @@ if (!carrossel) {
 
 // Animação: aparecer ao rolar (IntersectionObserver) - só primeira vez
 (function(){
-    const selectors = ['.card', '.title', '.image'];
+    const selectors = ['.card', '.title', '.fade-in', '.reveal-on-scroll'];
     const elements = document.querySelectorAll(selectors.join(','));
     if (!elements.length) return;
     elements.forEach(el => el.classList.add('reveal'));
