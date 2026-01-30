@@ -5,16 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
-    <link rel="icon" href="imagens/logo.png" type="imagens/png">
+    <link rel="icon" href="imagens/logo.png" type="image/png">
     <title>Perfil</title>
 </head>
-<body>
-    
 
+<body>
     <nav>
         <div class="nav-logo">
             <a href="#">
-                <img src="imagens/user.png">
+                <img src="imagens/user.png" alt="Ícone do usuário">
             </a>
         </div>
 
@@ -36,7 +35,7 @@
                 <small>Front-End Developer</small></h1>
         </div>
         <div class="image">
-            <img src="imagens/foto perfil nova.png">
+            <img src="imagens/foto perfil nova.png" alt="Foto de perfil de Yan">
         </div>
     </header>
 
@@ -45,42 +44,66 @@
     <section class="biblioteca">
         <h2 class="title">Minha biblioteca de Projetos</h2>
         <div class="carrossel-container">
-            <button class="prev"><i class="ri-arrow-left-line"></i></button>
-            <button class="prev"><i class="ri-arrow-right-line"></i></button>
+            <button class="prev" id="prevBtn"><i class="ri-arrow-left-line"></i></button>
+            <button class="next" id="nextBtn"><i class="ri-arrow-right-line"></i></button>
 
-            <div class="projetos">
+            <div class="projetos" id="carrossel">
                 
                 <div class="card">
-                    <h4>Simulador de <br>
-                        Orçamentos</h4>
-                    <p>
-                    Um simulador de orçamento que permite calcular o custo de um projeto de acordo com as especificações do usuário.
-                    </p>
-                    <!--<a href="#" class="btn-sim">Acessar Simulador<i class="ri-arrow-right-line"></i></a>-->
+                    <div class="card-content">
+                        <h4>Simulador de <br>
+                            Orçamentos</h4>
+                        <p>
+                        Um simulador de orçamento que permite calcular o custo de um projeto de acordo com as especificações do usuário.
+                        </p>
+                    </div>
+                    <div class="card-image">
+                        <img src="imagens/contabilidade-financas-mesa-papel-utilizando_1262-2292.avif" alt="Simulador">
+                        <div class="card-fade" aria-hidden="true"></div>
+                    </div>
                 </div>
                     
                 <div class="card">
-                    <h4>Kanban</h4>
-                    <p>
-                        Um Kanban para organizar suas tarefas de forma eficiente e produtiva de acordo com sua agenda do seu dia a dia 
-                    </p>
-                    <!--<a href="#" class="btn-kan">Acessar Kanban<i class="ri-arrow-right-line"></i></a>-->
+                    <div class="card-content">
+                        <h4>Kanban</h4>
+                        <p>
+                            Um Kanban para organizar suas tarefas de forma eficiente e produtiva de acordo com sua agenda do seu dia a dia.
+                        </p>
+                    </div>
+                    <div class="card-image">
+                        <img src="imagens/360_F_1734335642_L2qX66VxfLOy5AZXGuPWJiYLbM3TibRC.jpg" alt="Kanban">
+                        <div class="card-fade" aria-hidden="true"></div>
+                    </div>
                 </div>
-                    
+
                 <div class="card">
-                    <h4>Em breve...</h4>
-                    <p>
-                        Planejamento do projeto em andamento...
-                    </p>
-                    <!--<a href="#" class="btn-bre">
-                        <i class="fas fa-external-link-alt"></i> Ver Projeto</a>-->
-                </div>                
+                    <div class="card-content">
+                        <h4>Em breve...</h4>
+                        <p>
+                            Planejamento do projeto em andamento...
+                        </p>
+                    </div>
+                    <div class="card-image">
+                        <img src="imagens/ideia.jpeg" alt="Ideia">
+                        <div class="card-fade" aria-hidden="true"></div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <h4>Em breve...</h4>
+                        <p>
+                            Planejamento do projeto em andamento...
+                        </p>
+                    </div>
+                    <div class="card-image">
+                        <img src="imagens/ideia.jpeg" alt="Ideia">
+                    </div>
+                </div>
             </div>
         </div>       
     </section>
     
-    <script src="scrip</div>t.js" defer>
-
-    </script>
+    <script src="script.js" defer></script>
 </body>
 </html>

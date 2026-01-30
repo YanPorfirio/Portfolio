@@ -31,6 +31,7 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+
 nav {
     max-width: 1200px;
     margin: auto;
@@ -167,7 +168,7 @@ header .content h1 {
     position: absolute;
     inset: -10px;
     border-radius: 50px;
-    background-color: rgb(0, o, 0, 0.03);
+    background-color: rgba(0, 0, 0, 0.03);
     z-index: -1;
 }
 
@@ -178,9 +179,8 @@ header .content h1 {
 }
 
 .biblioteca {
-    max-width: 1200px;
-    margin: auto;
-    padding: 5rem;
+    width: 100%;
+    padding: 3rem 1rem;
 }
 
 hr {
@@ -195,36 +195,49 @@ hr {
 }
 
 .title {
-    margin-bottom: 1rem;
+    max-width: 1200px;
+    margin: 0 auto 2rem;
     color: black;
-    margin-bottom: 1.5rem;
     font-weight: 500;
     line-height: 1.2;
-    letter-spacing: -0.02em; 
-
+    letter-spacing: -0.02em;
+    font-size: 30px; 
 }
 
 .carrossel-container {
     position: relative;
-    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
     overflow: hidden;  
 }
 
 .carrossel-container button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
     padding: 0.9rem 0.9rem;
     background-color: #f5f5f7;
     border-radius: 100px;
     border: none;
-    box-shadow: 8px 10px 14px rgba(0, 0, 0, 0.1);
+    box-shadow: 10px 12px 16px rgba(0, 0, 0, 0.1);
     text-decoration: none;
     text-align: center;
     transition: all 0.2s ease-in-out;
-    
+    cursor: pointer;
+}
+
+.carrossel-container button.prev {
+    left: 1rem;
+}
+
+.carrossel-container button.next {
+    right: 1rem;
 }
 
 .carrossel-container button:hover {
-    transform: scale(1.05);
-    box-shadow: 8px 10px 14px rgba(0, 0, 0, 0.1);
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 8px 10px 14px rgba(0, 0, 0, 0.15);
 }
 
 .carrossel-container i {
@@ -246,20 +259,28 @@ hr {
 .projetos {
     display: flex;
     transition: transform 0.3s ease-in-out;
-  }
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    padding: 1rem;
+    gap: 1.25rem;
+}
+
+.projetos::-webkit-scrollbar {
+    display: none;
+}
   
   .card {
-    display: flex;
-    flex: 0 0 470px;
-    background: #1d1d1f;
-    margin-top: 20px;
-    margin-right: 20px;
-    border-radius: 30px;
-    box-shadow: 0 8px 12px rgba(0,0,0,0.1);
-    padding: 20px;
-    height: 570px;
-    transition: transform 0.4s ease;
-    
+        display: flex;
+        flex: 0 0 400px;
+        background: #1d1d1f;
+        border-radius: 30px;
+        box-shadow: 0 8px 12px rgba(0,0,0,0.1);
+        padding: 2rem;
+        height: 520px;
+        transition: transform 0.4s ease;
+        flex-direction: column;
+        justify-content: space-between; /* anexa a imagem consistentemente ao fundo do card */
   }
   
   .card:hover {
@@ -268,18 +289,36 @@ hr {
   
   .card h4 {
     margin-bottom: 10px;
-    font-size: 27px;
+    font-size: 29px;
     font-weight: 500;
     line-height: 32px;
     letter-spacing: -0.374px;
     color: #f5f5f7;
+    margin-top: 1rem;
   }
   
   .card p {
     color: #f5f5f7;
-    font-size: 0.95rem;
+    font-size: 1rem;
     line-height: 1.4;
+    margin-top: 0.7rem;
   }
 
+    .card img {
+        border-radius: 20px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* garante corte uniforme sem distorcer */
+        margin: 0;
+        align-self: center;
+        display: block;
+    }
 
-  
+    /* Garante que todas as imagens dentro do card tenham a mesma altura
+         e fiquem exatamente ancoradas no mesmo lugar (embaixo do card) */
+    .card-image {
+        height: 240px; /* ajuste esse valor conforme desejar */
+        overflow: hidden;
+        border-radius: 20px;
+        margin: 0;
+    }
