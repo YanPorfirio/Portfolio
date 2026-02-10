@@ -213,7 +213,7 @@ header .content h1 .name {
 
 .roll-page {
     position: absolute;
-    bottom: 2rem;
+    bottom: 3rem;
     background: none;
     border: none;
     cursor: pointer;
@@ -276,89 +276,118 @@ hr {
     margin-bottom: 3rem;
 }
 
-/* --- Substitua o bloco .projetos antigo por este --- */
+/* --- Container dos Projetos --- */
 .projetos {
     display: grid;
-    /* Cria colunas automaticamente. Se o espaço for menor que 350px, quebra linha */
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
-    gap: 2rem; /* Espaço entre os cards */
-    padding: 1rem;
-    width: 100%;
+    /* Força 2 colunas no desktop, 1 coluna no mobile */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 2.5rem; 
+    max-width: 1100px;
     margin: 0 auto;
-    /* Removemos overflow-x e scroll-behavior pois não é mais carrossel */
+    padding: 2rem;
 }
 
-/* --- Substitua o bloco .card antigo por este --- */
+/* --- Estilização do Card --- */
 .card {
+    background: #1c1c1e;
+    border-radius: 28px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    background: #2c2c2e;
-    border-radius: 30px;
-    box-shadow: 0 8px 12px rgba(0,0,0,0.1);
-    padding: 2rem;
-    height: 520px;
-    transition: transform 0.4s ease;
+    border: 1px solid #2c2c2e;
     
-    /* Removemos o flex: 0 0 400px fixo */
-    width: 100%; 
+    /* Configuração inicial para a animação do JS (Revelação) */
+    opacity: 0;
+    transform: translateY(30px);
+       
+    transition: 
+        transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), 
+        opacity 0.8s ease, 
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
+    
+    will-change: transform, opacity;
 }
 
-.card:hover {
-    transform: translateY(-12px);
+.card.visible {
+    opacity: 1;
+    transform: translateY(0); /* Volta para a posição normal */
 }
 
-/* --- Ajuste para telas menores (Mobile) --- */
-@media (max-width: 768px) {
-    .projetos {
-        /* No mobile, forçamos 1 coluna */
-        grid-template-columns: 1fr; 
-        padding: 0 1rem;
-    }
-  
-    .card {
-        /* Garante que o card não estoure a tela */
-        height: auto; 
-        min-height: 520px;
-    }
+.card.visible:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border-color: #3a3a3c;
+    cursor: pointer;
 }
 
-  .card h4 {
-    margin-bottom: 10px;
-    font-size: 29px;
+.card:active {
+    transform: translateY(-5px) scale(1.0);
+    transition: transform 0.1s ease;
+}
+/* --- Área da Imagem --- */
+.card-image {
+    width: 100%;
+    height: 320px; /* Aumentamos a altura da imagem */
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Preenche o espaço sem esticar */
+}
+
+/* --- Área de Texto (Informações) --- */
+.card-info {
+    padding: 1.5rem 2rem 2rem 2rem; /* Espaçamento interno apenas aqui */
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-info h4 {
+    font-size: 1.6rem;
     font-weight: 500;
-    line-height: 32px;
-    letter-spacing: -0.374px;
     color: #f5f5f7;
-    margin-top: 1rem;
-  }
-  
-  .card p {
-    color: #f5f5f7;
+    margin: 0;
+}
+
+.card-info p {
     font-size: 1rem;
+    color: #b3b3b7; /* Cinza mais suave para a descrição */
     line-height: 1.4;
-    margin-top: 0.7rem;
-  }
+    margin-bottom: 1.5rem;
+}
 
-    .card img {
-        border-radius: 20px;
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* garante corte uniforme sem distorcer */
-        margin: 0;
-        align-self: center;
-        display: block;
+/* --- Tags de Tecnologia --- */
+.card-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.card-tags span {
+    background: #2c2c2e;
+    color: #a1a1a6;
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 400;
+}
+
+/* --- Ajuste para Mobile --- */
+@media (max-width: 900px) {
+    .projetos {
+        grid-template-columns: 1fr; /* Volta para 1 coluna em telas pequenas */
     }
-
-    /* Garante que todas as imagens dentro do card tenham a mesma altura
-         e fiquem exatamente ancoradas no mesmo lugar (embaixo do card) */
-    .card-image {
-        height: 240px; /* ajuste esse valor conforme desejar */
-        overflow: hidden;
-        border-radius: 20px;
-        margin: 0;
-    }
-
+}
 /* Animação de aparecer ao rolar */
 .reveal {
     opacity: 0;
@@ -372,44 +401,113 @@ hr {
     transform: translateY(0);
 }
 
-.sobre-mim {
-    width: 100%;
-    padding: 3rem 1rem;
+/* --- Layout Principal da Secção Sobre Mim --- */
+.sobre-mim-section {
     background-color: #1d1d1f;
-    margin-top: 2rem;
+    padding: 5rem 1rem;
 }
 
-.sobre-mim-content {
+.sobre-mim-layout {
+    display: grid;
+    /* Cria duas colunas: a da esquerda ocupa o espaço necessário, a da direita o restante */
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem; /* Espaço grande entre o texto e os cards */
+    align-items: start;
+}
+
+/* --- Estilos da Coluna da Esquerda (Texto) --- */
+.descricao-sobre {
+    font-size: 1.1rem;
+    color: #b3b3b7;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    max-width: 500px;
+}
+
+/* --- Estilos das Estatísticas (Rodapé) --- */
+.stats-container {
     display: flex;
-    transition: transform 0.3s ease-in-out;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-    padding: 1rem;
-    gap: 1.25rem;
+    gap: 3rem;
+    margin-top: 3rem;
 }
 
-.sobre-mim-content::-webkit-scrollbar {
-    display: none;
+.stat-item h3 {
+    font-size: 3rem;
+    font-weight: 600;
+    color: #f5f5f7;
+    margin-bottom: 0.5rem;
 }
 
-.sobre-mim-card {
-    display: flex;
-    flex: 0 0 400px;
-    background: #2c2c2e;
-    border-radius: 30px;
-    box-shadow: 0 8px 12px rgba(0,0,0,0.1);
-    padding: 2rem;
-    height: 320px;
-    transition: transform 0.4s ease;
-    flex-direction: column;
-    justify-content: space-between; 
+.stat-item p {
+    font-size: 1rem;
+    color: #b3b3b7;
 }
 
-.sobre-mim-card:hover {
-    transform: translateY(-12px);
+/* --- Estilos da Coluna da Direita (Grid de Skills) --- */
+.sobre-mim-skills {
+    display: grid;
+    /* Grid 2x2 para os 4 cartões */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
 }
 
+/* --- Estilos Específicos dos "Skill Cards" --- */
+/* Note que eles já herdam a classe .card base para animações */
+.skill-card {
+    padding: 2rem; /* Padding interno maior para estes cards */
+    height: auto; /* Altura automática baseada no conteúdo */
+    min-height: 220px; /* Altura mínima para consistência */
+    justify-content: flex-start; /* Alinha conteúdo ao topo */
+}
+
+/* Estilo dos Ícones dentro dos skill cards */
+.skill-card i {
+    font-size: 2.5rem;
+    color: #f5f5f7;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.skill-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    color: #f5f5f7;
+}
+
+.skill-card p {
+    font-size: 0.95rem;
+    color: #86868b;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* --- Responsividade --- */
+@media (max-width: 968px) {
+    .sobre-mim-layout {
+        /* Em tablets e telemóveis, empilha tudo numa coluna */
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .title {
+        margin-left: 0 !important; /* Garante alinhamento em telas menores */
+    }
+
+    .stats-container {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Em ecrãs muito pequenos, os skills também ficam em 1 coluna */
+    .sobre-mim-skills {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-item h3 {
+        font-size: 2.5rem;
+    }
+}
 .contato {
     width: 100%;
     padding: 3rem 1rem;

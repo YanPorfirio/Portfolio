@@ -32,94 +32,149 @@
             <h1>Olá, Eu sou <span class="name">Yan</span><br></h1>
             <p class="descricao">Transformando ideias em experiências digitais incríveis. <br>
             Focado em criar interfaces que encantam e engajam.</p>
-            <button class="roll-page"><i class="ri-arrow-down-line"></i></button>
+            <button class="roll-page" href="#main-content"><i class="ri-arrow-down-line"></i></button>
         </div>
     </header>
     
     <!-- <hr> -->
     
-    <main>
+    <main id="main-content">
         <section class="biblioteca">
             <h2 class="title">Projetos</h2>
             <p class="sub-title">Uma seleção dos meus trabalhos mais recentes e projetos em <br> desenvolvimento.</p>
             <div class="carrossel-container">
            
-            <div class="projetos" id="galeria">
+            <div class="projetos" id="projetos">
                 
                     <div class="card">
-                        <div class="card-content">
-                            <div class="card-image">
-                                <img src="imagens/contabilidade-financas-mesa-papel-utilizando_1262-2292.avif" alt="Simulador">
-                                <div class="card-fade" aria-hidden="true"></div>
+                        <div class="card-image">
+                            <img src="imagens/contabilidade-financas-mesa-papel-utilizando_1262-2292.avif" alt="Simulador">
+                        </div>
+    
+                        <div class="card-info">
+                            <div class="card-header">
+                                <h4>Simulador de Orçamentos</h4>
+                                <i class="ri-arrow-right-up-line"></i> </div>
+                                <p>Um simulador de orçamento que permite calcular o custo de um projeto de acordo com as especificações do usuário.</p>
+        
+                            <div class="card-tags">
+                                <span>React</span>
+                                <span>TypeScript</span>
+                                <span>Tailwind</span>
                             </div>
-                            <h4>Simulador de <br>
-                            Orçamentos</h4>
-                            <p>
-                            Um simulador de orçamento que permite calcular o custo de um projeto de acordo com as especificações do usuário.
-                            </p>
                         </div>
                     </div>
                     
                     <div class="card">
-                        <div class="card-content">
-                            <div class="card-image">
-                                <img src="imagens/360_F_1734335642_L2qX66VxfLOy5AZXGuPWJiYLbM3TibRC.jpg" alt="Kanban">
-                                <div class="card-fade" aria-hidden="true"></div>
+                        <div class="card-image">
+                            <img src="imagens/dashboard-template-user-panel_23-2148370477.avif" alt="Dashboard">
+                        </div>
+    
+                        <div class="card-info">
+                            <div class="card-header">
+                                <h4>Dashboard de Projetos</h4>
+                                <i class="ri-arrow-right-up-line"></i> </div>
+                                <p>Painel de análise de projetos com métricas e indicadores de desempenho.</p>
+        
+                            <div class="card-tags">
+                                <span>Next.js</span>
+                                <span>Chart.js</span>
+                                <span>API</span>
                             </div>
-                            <h4>Kanban</h4>
-                            <p>
-                                Um Kanban para organizar suas tarefas de forma eficiente e produtiva de acordo com sua agenda do seu dia a dia.
-                            </p>
                         </div>
                     </div>
 
                     <div class="card">
-                        <div class="card-content">
-                            <div class="card-image">
-                                <img src="imagens/ideia.jpeg" alt="Ideia">
-                                <div class="card-fade" aria-hidden="true"></div>
+                        <div class="card-image">
+                            <img src="imagens/360_F_1734335642_L2qX66VxfLOy5AZXGuPWJiYLbM3TibRC.jpg" alt="Kanban">
+                        </div>
+    
+                        <div class="card-info">
+                            <div class="card-header">
+                                <h4>Kanban Board</h4>
+                                <i class="ri-arrow-right-up-line"></i> </div>
+                                <p>Um Kanban Board de gerenciamento de tarefas com funcionalidades de drag and drop e visualização em tempo real.</p>
+        
+                            <div class="card-tags">
+                                <span>React</span>
+                                <span>TypeScript</span>
+                                <span>Tailwind</span>
                             </div>
-                            <h4>Em breve...</h4>
-                            <p>
-                                Planejamento do projeto em andamento...
-                            </p>
                         </div>
                     </div>
 
                     <div class="card">
-                        <div class="card-content">
-                            <div class="card-image">
-                                <img src="imagens/ideia.jpeg" alt="Ideia">
-                                <div class="card-fade" aria-hidden="true"></div>
+                        <div class="card-image">
+                            <img src="imagens/pawel-czerwinski-7FqOISWr5V0-unsplash.jpg" alt="Em Breve">
+                        </div>
+    
+                        <div class="card-info">
+                            <div class="card-header">
+                                <h4>Em Breve</h4>
+                                <i class="ri-arrow-right-up-line"></i> </div>
+                                <p>Novo projeto em desenvolvimento. Fique atento às novidades!</p>
+        
+                            <div class="card-tags">
+                                <span>Em Planejamento</span>
                             </div>
-                            <h4>Em breve...</h4>
-                            <p>
-                                Planejamento do projeto em andamento...
-                            </p>
                         </div>
                     </div>
                 </div>
             </div>       
         </section>
 
-        <section>
-            <div class="sobre-mim">
-                <h2 class="title">Sobre Mim</h2>
-                <p class="sub-title">Sou um desenvolvedor Front-End apaixonado por criar <br>
-                     experiências digitais que combinam design elegante com <br>
-                      funcionalidade impecável. Meu objetivo é transformar ideias <br>
-                      em interfaces que não apenas funcionam, mas encantam.</p>
+        <section id="sobre-mim" class="sobre-mim-section">
+            <div class="container"> <div class="sobre-mim-layout">
+            
+                    <div class="sobre-mim-conteudo">
+                        <h2 class="title" style="margin-left: 0; margin-top: 0;">Sobre Mim</h2>
+                        <p class="descricao-sobre">
+                            Sou um desenvolvedor Front-End apaixonado por criar experiências digitais que combinam design elegante com funcionalidade impecável. Meu objetivo é transformar ideias em interfaces que não apenas funcionam, mas encantam.
+                        </p>
+                        <p class="descricao-sobre">
+                            Com foco em React e TypeScript, busco constantemente aprender novas tecnologias e boas práticas para entregar projetos de alta qualidade.
+                        </p>
 
-                    <p class="sub-title">Com foco em React e TypeScript, busco constantemente <br>
-                        aprender novas tecnologias e boas práticas para entregar <br>
-                        projetos de alta qualidade. </p>
-                <div class="cards-sobre-mim">
+                        <div class="stats-container">
+                            <div class="stat-item">
+                                <h3>1</h3>
+                                <p>Ano de Experiência</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>3+</h3>
+                                <p>Projetos Concluídos</p>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="sobre-mim-skills">
+                
+                        <div class="card skill-card">
+                            <i class="ri-code-s-slash-line"></i> <h4>Desenvolvimento</h4>
+                            <p>HTML, CSS, JavaScript, React, TypeScript</p>
+                        </div>
+
+                        <div class="card skill-card">
+                            <i class="ri-palette-line"></i> <h4>Design</h4>
+                            <p>UI/UX, Figma, Design Systems</p>
+                        </div>
+
+                        <div class="card skill-card">
+                            <i class="ri-flashlight-fill"></i> <h4>Performance</h4>
+                            <p>Otimização, SEO, Acessibilidade</p>
+                        </div>
+
+                        <div class="card skill-card">
+                            <i class="ri-heart-3-line"></i> <h4>Paixão</h4>
+                            <p>Clean Code, Boas Práticas, Aprendizado</p>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section>
+        <section class="contato" id="contato">
             <div class="contato">
                 <p>Vamos conversar?</p>
                 <h2 class="title-contato">Tem um projeto em mente?</h2>
