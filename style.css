@@ -190,7 +190,7 @@ header .content h1 .name {
 
 .Front-End {
     max-width: 700px;
-    margin: 1rem auto 0;
+    margin: -0.5rem auto 0;
     font-size: 1.2rem;
     color: #b3b3b7;
     padding: 1rem 1.4rem;
@@ -276,106 +276,53 @@ hr {
     margin-bottom: 3rem;
 }
 
-.carrossel-container {
-    position: relative;
-    max-width: 100%;
+/* --- Substitua o bloco .projetos antigo por este --- */
+.projetos {
+    display: grid;
+    /* Cria colunas automaticamente. Se o espaço for menor que 350px, quebra linha */
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
+    gap: 2rem; /* Espaço entre os cards */
+    padding: 1rem;
+    width: 100%;
     margin: 0 auto;
-    overflow: hidden;  
+    /* Removemos overflow-x e scroll-behavior pois não é mais carrossel */
 }
 
-.carrossel-container button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    padding: 0.9rem 0.9rem;
-    background-color: #f5f5f7;
-    border-radius: 100px;
-    border: none;
-    box-shadow: 10px 12px 16px rgba(0, 0, 0, 0.1);
-    text-decoration: none;
-    text-align: center;
-    transition: opacity 750ms ease, transform 750ms ease, box-shadow 750ms ease;
-    cursor: pointer;
-    opacity: 1;
-    visibility: visible;
+/* --- Substitua o bloco .card antigo por este --- */
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #2c2c2e;
+    border-radius: 30px;
+    box-shadow: 0 8px 12px rgba(0,0,0,0.1);
+    padding: 2rem;
+    height: 520px;
+    transition: transform 0.4s ease;
+    
+    /* Removemos o flex: 0 0 400px fixo */
+    width: 100%; 
 }
 
-.carrossel-container button.prev {
-    left: 1rem;
+.card:hover {
+    transform: translateY(-12px);
 }
 
-.carrossel-container button.prev.hidden {
-    transform: translateY(-50%) translateX(-60px) scale(0.92);
-}
-
-.carrossel-container button.next {
-    right: 1rem;
-}
-
-.carrossel-container button.next.hidden {
-    transform: translateY(-50%) translateX(60px) scale(0.92);
-}
-
-.carrossel-container button:hover {
-    transform: translateY(-50%) scale(1.05);
-    box-shadow: 8px 10px 14px rgba(0, 0, 0, 0.15);
-}
-
-/* Classe para esconder os botões com transição limpa */
-.carrossel-container button.hidden {
-    opacity: 0;
-    pointer-events: none;
-    visibility: hidden;
-}
-
-.carrossel-container i {
-    color: #1d1d1f;
-    font-size: 3rem;
-}
-
+/* --- Ajuste para telas menores (Mobile) --- */
 @media (max-width: 768px) {
     .projetos {
-      flex-direction: column;
-      align-items: center;
+        /* No mobile, forçamos 1 coluna */
+        grid-template-columns: 1fr; 
+        padding: 0 1rem;
     }
   
     .card {
-      width: 90%;
+        /* Garante que o card não estoure a tela */
+        height: auto; 
+        min-height: 520px;
     }
-  }  
-
-.projetos {
-    display: flex;
-    transition: transform 0.3s ease-in-out;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-    padding: 1rem;
-    gap: 1.25rem;
 }
 
-.projetos::-webkit-scrollbar {
-    display: none;
-}
-  
-  .card {
-        display: flex;
-        flex: 0 0 400px;
-        background: #2c2c2e;
-        border-radius: 30px;
-        box-shadow: 0 8px 12px rgba(0,0,0,0.1);
-        padding: 2rem;
-        height: 520px;
-        transition: transform 0.4s ease;
-        flex-direction: column;
-        justify-content: space-between; /* anexa a imagem consistentemente ao fundo do card */
-  }
-  
-  .card:hover {
-    transform: translateY(-12px);
-  }
-  
   .card h4 {
     margin-bottom: 10px;
     font-size: 29px;
